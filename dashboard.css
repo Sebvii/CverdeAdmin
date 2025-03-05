@@ -78,7 +78,7 @@ body {
     left: 0;
     width: var(--sidebar-width);
     height: 100vh;
-    background-color: #343a40;
+    background-color: #bb8888;
     padding-top: 1rem; /* add padding if needed */
   }
   /* Fixed Top Navbar styling, shifted right by sidebar width */
