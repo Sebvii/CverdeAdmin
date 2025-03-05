@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cverde Admin</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- Fixed Sidebar -->
+  <nav id="sidebar">
+    <div class="pt-3">
+      <h4 class="text-white ps-3">Admin</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Content Management</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Reports</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Fixed Top Navbar (beside the sidebar) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Cverde</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="content px-md-4">
+    <div class="container-fluid">
+      <h1 class="mb-4">Dashboard</h1>
+      <p>
+        Welcome to the Carbon Footprint Awareness Admin Panel. Monitor carbon metrics,
+        track user registration, review analytics, and manage site content all in one place.
+      </p>
+
+      <!-- Row: Registered Users and Content Management -->
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Registered Users</h5>
+              <p class="card-text">
+                Total Registered Users: <strong>1,234</strong>
+              </p>
+              <a href="#" class="btn btn-primary">View Users</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Content Management</h5>
+              <p class="card-text">
+                Manage site content, updates, and blog posts.
+              </p>
+              <a href="#" class="btn btn-primary">Manage Content</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Card -->
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Analytics</h5>
+              <div class="chart-container">
+                <canvas id="analyticsChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Chart Initialization Script -->
+  <script>
+    const ctx = document.getElementById('analyticsChart').getContext('2d');
+    const analyticsChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Emissions (tons)',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
